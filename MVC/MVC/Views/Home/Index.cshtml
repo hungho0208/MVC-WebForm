@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@section Scripts {
+    <script type="text/javascript" src="~/js/home.js?ver=@DateTime.Now.ToString("yyyyMMddhhmmss")"></script>
+
+}
+
+    <div>
+        <form id="form">
+            <div>
+                <label for="nameInput">姓名：</label>
+                <input type="text" id="nameInput" name="nameInput" placeholder="輸入姓名">
+            </div>
+            <div>
+                <label for="ageInput">年齡：</label>
+                <input type="text" id="ageInput" name="ageInput" placeholder="輸入年齡" />
+            </div>
+            <div>
+                <label for="birthdayInput">生日：</label>
+                <input type="text" id="birthdayInput" name="birthdayInput" placeholder="yyyy-MM-dd" oninput="toggleClearButton()" />
+                <span class="clear-btn" onclick="clearInput()">X</span>
+            </div>
+            <div style="display:none">
+                <label for="guidInput">GUID：</label>
+                <input type="text" id="guidInput" name="guidInput" />
+            </div>
+        </form>
+        <button id="btn" onclick="createForm()">建立帳號</button>
+        <table id="table-data" class="table  table-striped text-center col-12  table-sm fixed-table" style="display:none">
+            <thead>
+                <tr class="text-center thead-dark">
+                    <th class="col-sm-3">姓名</th>
+                    <th class="col-sm-3">年齡</th>
+                    <th class="col-sm-4">生日</th>
+                    <th class="col-sm-2">管理</th>
+                </tr>
+            </thead>
+            <tbody id="row-data" onclick="tableBtnDelegation(event)">
+            </tbody>
+        </table>
+    </div>
